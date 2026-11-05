@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Transmission</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1b2b40, #080d15 70%);
+  color: #edf1f7;
+  font-family: Arial, sans-serif;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.panel {
+  width: 100%;
+  max-width: 540px;
+  padding: 35px;
+  background: #111b29;
+  border: 1px solid #35465b;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px #0008;
+}
+
+.top {
+  color: #8da0b8;
+  font-size: 11px;
+  letter-spacing: 3px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #35465b;
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  color: #d9ae68;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+h1 {
+  font-size: 34px;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+h1 span {
+  color: #d9ae68;
+}
+
+.description {
+  color: #aab7c8;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  color: #8da0b8;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 16px;
+  background: #080f19;
+  border: 1px solid #40536c;
+  border-radius: 7px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #d9ae68;
+}
+
+button {
+  width: 100%;
+  padding: 17px;
+  margin-top: 18px;
+  background: #d9ae68;
+  border: none;
+  border-radius: 7px;
+  color: #101722;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f0ca89;
+}
+
+#feedback {
+  color: #e58b7d;
+  font-size: 13px;
+  margin-top: 15px;
+  min-height: 18px;
+}
+
+#hint {
+  margin-top: 15px;
+  padding: 14px;
+  background: #30291b;
+  border: 1px solid #80663c;
+  color: #f0ca89;
+  border-radius: 7px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #40536c;
+}
+
+.dot.used {
+  background: #e58b7d;
+}
+
+.message {
+  color: #c4cfdd;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.message p {
+  margin-bottom: 18px;
+}
+
+.message strong {
+  color: #f0ca89;
+}
+
+.signature {
+  color: #d9ae68;
+  border-top: 1px solid #35465b;
+  padding-top: 20px;
+  margin-top: 25px;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.music {
+  margin-top: 30px;
+}
+
+iframe {
+  width: 100%;
+  height: 166px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.footer {
+  color: #708197;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #35465b;
+}
+
+@media (max-width: 480px) {
+  .panel {
+    padding: 25px 20px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main style="width:100%;max-width:540px">
+
+  <!-- CONTRASEÑA -->
+  <section class="panel" id="access">
+
+    <div class="top">PRIVATE CHANNEL // 001</div>
+
+    <div style="font-size:38px;color:#d9ae68;margin-bottom:20px">◈</div>
+
+    <div class="eyebrow">INCOMING TRANSMISSION</div>
+
+    <h1>Hey, <span>Hater_of_Inter.</span></h1>
+
+    <p class="description">
+      There's something waiting for you.
+      But first, verify your identity.
+    </p>
+
+    <label for="password">ACCESS KEY</label>
+
+    <input
+      id="password"
+      type="password"
+      placeholder="Enter password..."
+      autocomplete="off"
+    >
+
+    <button type="button" onclick="unlockTransmission()">
+      UNLOCK TRANSMISSION →
+    </button>
+
+    <p id="feedback" aria-live="polite"></p>
+
+    <div class="dots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+    <div id="hint" hidden>
+      HINT: El primer PIN que tienes con Pandita.
+    </div>
+
+    <div class="footer">ENCRYPTED MESSAGE · 2026</div>
+
+  </section>
+
+
+  <!-- MENSAJE -->
+  <section class="panel" id="message" hidden>
+
+    <div class="top">CONNECTION ESTABLISHED // 001</div>
+
+    <div class="eyebrow">TRANSMISSION DECRYPTED</div>
+
+    <h1>Well... <span>hello again.</span></h1>
+
+    <div class="message">
+
+      <p>
+        Bueno... no sé muy bien cómo empezar esto,
+        pero quería decirte algo: <strong>te extraño y te quiero
+            .</strong>
+      </p>
+
+      <p>
+        Extraño nuestras conversaciones, tus stickers,
+        tus comentarios, juegos y esos momentos en los que
+        hablar contigo se volvió parte de mi día, tarde y noche.
+      </p>
+
+      <p>
+        Sé que algunas cosas que dijiste sobre mi edad
+        y la distancia me dolieron. No voy a fingir que no pasó.
+      </p>
+
+      <p>
+        Pero, a pesar de todo, todavía me acuerdo
+        de ti con todo el cariño y amor del mundo.
+        Y sí, todavía me gustaría hablar contigo.
+      </p>
+
+      <p>
+        No espero nada ni quiero presionarte.
+        Simplemente me gustaría que pudiéramos seguir
+        siendo amigos, sin complicaciones ni expectativas.
+      </p>
+
+      <p>
+        Quizás esto sea un poco inesperado, pero prefería
+        decírtelo antes que quedarme con las ganas.
+      </p>
+
+    </div>
+
+    <div class="signature">
+      — Someone who still remembers your conversations.
+    </div>
+
+<div class="music">
+  <div class="eyebrow">A LITTLE SOMETHING TO LISTEN TO</div>
+
+  <iframe
+    src="https://open.spotify.com/embed/track/2pIIRKRwWSi1Sb29VYLOOa?utm_source=generator"
+    width="100%"
+    height="152"
+    frameborder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</div>
+
+    <div class="footer">END OF TRANSMISSION · TAKE CARE</div>
+
+  </section>
+
+</main>
+
+<script>
+let attempts = 0;
+
+function unlockTransmission() {
+
+  const input = document.getElementById("password");
+  const feedback = document.getElementById("feedback");
+  const access = document.getElementById("access");
+  const message = document.getElementById("message");
+  const hint = document.getElementById("hint");
+  const dots = document.querySelectorAll(".dot");
+
+  const enteredPassword = input.value.trim().toLowerCase();
+
+  if (enteredPassword === "morat me mata") {
+
+    access.hidden = true;
+    message.hidden = false;
+    document.title = "Transmission unlocked";
+
+  } else {
+
+    attempts++;
+
+    if (attempts <= 3) {
+      dots[attempts - 1].classList.add("used");
+    }
+
+    input.value = "";
+
+    if (attempts >= 3) {
+      hint.hidden = false;
+      feedback.textContent = "ACCESS DENIED. Try again.";
+    } else {
+      feedback.textContent = "Incorrect password. Try again.";
+    }
+
+    input.focus();
+  }
+}
+
+document.getElementById("password").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    unlockTransmission();
+  }
+});
+</script>
+
+</body>
+</html>
